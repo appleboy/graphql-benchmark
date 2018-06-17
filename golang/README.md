@@ -66,3 +66,20 @@ Running 30s test @ http://localhost:8080/graphql?query={hello}
 Requests/sec:   9267.52
 Transfer/sec:      1.27MB
 ```
+
+## [echo](https://github.com/labstack/echo) framework
+
+see [main.go](./graphql-go/echo/main.go)
+
+```
+$ wrk -t12 -c400 -d30s --timeout 10s "http://localhost:8080/graphql?query={hello}"
+Running 30s test @ http://localhost:8080/graphql?query={hello}
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    75.90ms  109.05ms   1.61s    88.04%
+    Req/Sec   842.14    232.97     2.11k    72.22%
+  302158 requests in 30.10s, 45.82MB read
+  Socket errors: connect 0, read 9, write 0, timeout 0
+Requests/sec:  10038.20
+Transfer/sec:      1.52MB
+```
