@@ -50,3 +50,19 @@ Running 30s test @ http://localhost:8080/graphql?query={hello}
 Requests/sec:  10304.10
 Transfer/sec:      1.56MB
 ```
+
+## [httprouter](https://github.com/julienschmidt/httprouter) framework
+
+see [main.go](./graphql-go/httprouter/main.go)
+
+```
+$ wrk -t12 -c400 -d30s --timeout 10s "http://localhost:8080/graphql?query={hello}"
+Running 30s test @ http://localhost:8080/graphql?query={hello}
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    81.91ms  115.34ms   1.24s    87.57%
+    Req/Sec   778.14    266.32     2.33k    72.14%
+  278963 requests in 30.10s, 38.31MB read
+Requests/sec:   9267.52
+Transfer/sec:      1.27MB
+```
