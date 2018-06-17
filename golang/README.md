@@ -20,7 +20,7 @@ Transfer/sec:      1.38MB
 
 ## Simple http server + [json-iterator](https://github.com/json-iterator/go)
 
-see [main.go](./graphql-go/http/main.go)
+see [main.go](./graphql-go/http+jsoniter/main.go)
 
 ```
 $ wrk -t12 -c400 -d30s --timeout 10s "http://localhost:8080/graphql?query={hello}"
@@ -33,4 +33,20 @@ Running 30s test @ http://localhost:8080/graphql?query={hello}
   Socket errors: connect 0, read 236, write 9, timeout 0
 Requests/sec:  10522.81
 Transfer/sec:      1.45MB
+```
+
+## gin framework
+
+see [main.go](./graphql-go/gin/main.go)
+
+```
+$ wrk -t12 -c400 -d30s --timeout 10s "http://localhost:8080/graphql?query={hello}"
+Running 30s test @ http://localhost:8080/graphql?query={hello}
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    79.09ms  114.49ms   1.27s    87.47%
+    Req/Sec     0.86k   234.53     2.24k    72.36%
+  310036 requests in 30.09s, 47.01MB read
+Requests/sec:  10304.10
+Transfer/sec:      1.56MB
 ```
